@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, Button, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 
 const App = () => {
   const [subhanallah, setSubhanallah] = useState(0);
@@ -10,10 +10,9 @@ const App = () => {
     <View style={styles.container}>
       <View>
         <View style={styles.subhanallahboxStyle}>
-          <Text style={styles.subhanallatextStyle}>{subhanallah}</Text>
+          <Text>{subhanallah}</Text>
         </View>
-        <Button
-          title="Subhanallah"
+        <TouchableOpacity
           onPress={() => {
             if (subhanallah == 32) {
               setSubhanallah('33 Subhanallaha Completed');
@@ -21,101 +20,171 @@ const App = () => {
             } else {
               setSubhanallah(subhanallah + 1);
             }
-          }}
-        />
+          }}>
+          <View style={styles.subhanallatextStyle}>
+            <Text>subhanallah</Text>
+          </View>
+        </TouchableOpacity>
 
-        <Button
-          title="Reset"
+        <TouchableOpacity
           onPress={() => {
             setSubhanallah(0);
-          }}
-        />
+          }}>
+          <View style={styles.resettextStyle}>
+            <Text>Reset</Text>
+          </View>
+        </TouchableOpacity>
       </View>
 
       <View>
-        <View style={styles.alhamdulillahaboxStyle}>
-          <Text style={styles.alhamdulillahatextStyle}>{alhamdulillah}</Text>
+        <View style={styles.alhamdulillahboxStyle}>
+          <Text>{alhamdulillah}</Text>
         </View>
-        <Button
-          title="Alhamdulillah"
+        <TouchableOpacity
           onPress={() => {
             if (alhamdulillah == 32) {
-              setAlhamdulillah('33 Alhamdulillah Completed');
-            } else if (alhamdulillah == '33 Alhamdulillah Completed') {
+              setAlhamdulillah('33 alhamdulillah Completed');
+            } else if (alhamdulillah == '33 alhamdulillah Completed') {
             } else {
               setAlhamdulillah(alhamdulillah + 1);
             }
-          }}
-        />
+          }}>
+          <View style={styles.alhamdulillahStyle}>
+            <Text>alhamdulillah</Text>
+          </View>
+        </TouchableOpacity>
 
-        <Button
-          title="Reset"
+        <TouchableOpacity
           onPress={() => {
             setAlhamdulillah(0);
-          }}
-        />
+          }}>
+          <View style={styles.resettextStyle}>
+            <Text>Reset</Text>
+          </View>
+        </TouchableOpacity>
       </View>
 
       <View>
         <View style={styles.allahuakbarboxStyle}>
-          <Text style={styles.allahuakbartextStyle}>{allahuakbar}</Text>
+          <Text>{allahuakbar}</Text>
         </View>
-        <Button
-          title="Allahuakbar"
+        <TouchableOpacity
           onPress={() => {
             if (allahuakbar == 32) {
-              setAllahuakbar('33 Allahuakbar Completed');
-            } else if (allahuakbar == '33 Allahuakbar Completed') {
+              setAllahuakbar('33 allahuakbar Completed');
+            } else if (allahuakbar == '33 allahuakbar Completed') {
             } else {
               setAllahuakbar(allahuakbar + 1);
             }
-          }}
-        />
+          }}>
+          <View style={styles.allahuakbarStyle}>
+            <Text>allahuakbar</Text>
+          </View>
+        </TouchableOpacity>
 
-        <Button
-          title="Reset"
+        <TouchableOpacity
           onPress={() => {
             setAllahuakbar(0);
-          }}
-        />
+          }}>
+          <View style={styles.resettextStyle}>
+            <Text>Reset</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  subhanallatextStyle: {
-    fontSize: 20,
-  },
-  alhamdulillahatextStyle: {
-    fontSize: 20,
-  },
-  allahuakbartextStyle: {
-    fontSize: 20,
-  },
-
-  alhamdulillahaboxStyle: {
-    width: 350,
-    height: 25,
-    backgroundColor: 'yellow',
-  },
-  subhanallahboxStyle: {
-    width: 350,
-    height: 25,
-    backgroundColor: 'red',
-  },
-  allahuakbarboxStyle: {
-    width: 350,
-    height: 25,
-    backgroundColor: 'green',
-  },
   container: {
-    marginTop: 150,
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
     paddingLeft: 20,
     paddingRight: 20,
     justifyContent: 'space-between',
-    flexDirection: 'column',
-    marginHorizontal: 10,
+
+    backgroundColor: 'white',
+    flex: 1,
+  },
+
+  subhanallatextStyle: {
+    backgroundColor: 'skyblue',
+    width: 300,
+    height: 45,
+    fontSize: 100,
+    alignItems: 'center',
+    paddingVertical: 10,
+    marginBottom: 10,
+    marginLeft: 25,
+  },
+
+  alhamdulillahStyle: {
+    backgroundColor: 'skyblue',
+    width: 300,
+    height: 45,
+    fontSize: 100,
+    alignItems: 'center',
+    paddingVertical: 10,
+    marginBottom: 10,
+    marginLeft: 25,
+  },
+  allahuakbarStyle: {
+    backgroundColor: 'skyblue',
+    width: 300,
+    height: 45,
+    fontSize: 100,
+    alignItems: 'center',
+    paddingVertical: 10,
+    marginBottom: 10,
+    marginLeft: 25,
+  },
+
+  resettextStyle: {
+    backgroundColor: 'yellow',
+    width: 300,
+    height: 45,
+    fontSize: 100,
+    alignItems: 'center',
+    paddingVertical: 10,
+    marginBottom: 50,
+    marginLeft: 25,
+  },
+
+  subhanallahboxStyle: {
+    width: 300,
+    height: 45,
+    backgroundColor: 'red',
+    fontSize: 20,
+    alignItems: 'center',
+    paddingVertical: 5,
+    marginTop: 150,
+    marginBottom: 10,
+    marginLeft: 25,
+  },
+
+  alhamdulillahboxStyle: {
+    width: 300,
+    height: 45,
+    backgroundColor: 'red',
+    fontSize: 20,
+    alignItems: 'center',
+    paddingVertical: 5,
+    marginBottom: 10,
+    marginTop: -30,
+    marginLeft: 25,
+  },
+  allahuakbarboxStyle: {
+    width: 300,
+    height: 45,
+    backgroundColor: 'red',
+    fontSize: 20,
+    alignItems: 'center',
+    paddingVertical: 5,
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 25,
   },
 });
 
